@@ -1,0 +1,153 @@
+{
+	"eula": "",
+	"vendor": "Darshan SAVANI",
+	"license": "",
+	"id": "com.sap.sac.sample.donut.prepared",
+	"version": "1.1.1",
+	"name": "Donut_chart",
+	"newInstancePrefix": "Donut_chart",
+	"description": "Donut chart",
+	"webcomponents": [
+		{
+			"kind": "main",
+			"tag": "com-sap-sample-donut-prepared",
+			"url": "https://savani5700.github.io/MM-SAC-Custom-Widget.github.io/Donut_DataBinding.JS",
+			"integrity": "",
+			"ignoreIntegrity": true
+		}
+	],
+	"properties": {
+		"width": {
+			"type": "integer",
+			"default": 600
+		},
+		"height": {
+			"type": "integer",
+			"default": 420
+		},
+		"dimensionFeed": {
+			"type": "string[]",
+			"default": []
+		},
+		"measureFeed": {
+			"type": "string[]",
+			"default": []
+		},
+		"caption": {
+			"type": "string",
+			"description": "The caption of the gauge chart",
+			"default": ""
+		}
+	},
+	"dataBindings": {
+		"myDataSource": {
+			"feeds": [
+				{
+					"id": "dimensions",
+					"description": "Dimensions",
+					"type": "dimension"
+				},
+				{
+					"id": "measures",
+					"description": "Measures",
+					"type": "mainStructureMember"
+				}
+			]
+		}
+	},
+	"methods": {
+		"getCaption": {
+			"returnType": "string",
+			"description": "The caption of the bar chart",
+			"parameters": [],
+			"body": "return this.caption;"
+		},
+		"setCaption": {
+			"description": "The caption of the bar chart",
+			"parameters": [
+				{
+					"name": "caption",
+					"type": "string",
+					"description": "The new caption"
+				}
+			],
+			"body": "this.caption = caption;"
+		},
+		"openSelectModelDialog": {
+			"parameters": [],
+			"body": "this.dataBindings.getDataBinding('myDataSource').openSelectModelDialog();"
+		},
+		"getDimensions": {
+			"parameters": [],
+			"body": "return this.dataBindings.getDataBinding('myDataSource').getDataSource().getDimensions();",
+			"returnType": "DimensionInfo[]"
+		},
+		"getMeasures": {
+			"parameters": [],
+			"body": "return this.dataBindings.getDataBinding('myDataSource').getDataSource().getMeasures();",
+			"returnType": "MeasureInfo[]"
+		},
+		"addDimension": {
+			"parameters": [
+				{
+					"name": "dimensionId",
+					"type": "string"
+				}
+			]
+		},
+		"addMeasure": {
+			"parameters": [
+				{
+					"name": "measureId",
+					"type": "string"
+				}
+			]
+		},
+		"removeDimension": {
+			"parameters": [
+				{
+					"name": "dimensionId",
+					"type": "string"
+				}
+			]
+		},
+		"removeMeasure": {
+			"parameters": [
+				{
+					"name": "measureId",
+					"type": "string"
+				}
+			]
+		},
+		"getDimensionsOnFeed": {
+			"parameters": [],
+			"returnType": "string[]"
+		},
+		"getMeasuresOnFeed": {
+			"parameters": [],
+			"returnType": "string[]"
+		},
+		"getDataSource": {
+			"parameters": [],
+			"body": "return this.dataBindings.getDataBinding('myDataSource').getDataSource();",
+			"returnType": "DataSource"
+		},
+		"setModel": {
+			"parameters": [
+				{
+					"name": "modelId",
+					"type": "string"
+				}
+			],
+			"body": "this.dataBindings.getDataBinding('myDataSource').setModel(modelId);"
+		}
+	},
+	"events": {
+		"onResultChanged": {
+			"description": "called when the result set of the widget changes"
+		},
+		"onClick": {
+			"description": "Called when the user clicks the Box."
+		}
+	}
+}
