@@ -6,7 +6,7 @@ var getScriptPromisify = (src) => {
     
     (function () {
     
-    //Chart Block in HTML Darshan Savani
+    //Chart Block in HTML Darshan 
     const prepared = document.createElement('template')
     prepared.innerHTML = `
     <style>
