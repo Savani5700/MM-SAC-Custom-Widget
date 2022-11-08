@@ -5,44 +5,33 @@ var getScriptPromisify = (src) => {
   }
   
   (function () {
-  
-    //Chart Block in HTML Darshan Savani
     const prepared = document.createElement('template')
     prepared.innerHTML = `
-  <style>
-  </style>
-  <div id="root" style="width: 100%; height: 100%;">
-  </div>
-  `
-    //Main JS Class holds methods to be called
+        <style>
+        </style>
+        <div id="root" style="width: 100%; height: 100%;">
+        </div>
+      `
     class SamplePrepared extends HTMLElement {
-      constructor() {
-  
-        //call SAC DOM Super method to get shadow DOM information
+      constructor () {
         super()
   
-        //Get shadow DOM informations
         this._shadowRoot = this.attachShadow({ mode: 'open' })
         this._shadowRoot.appendChild(prepared.content.cloneNode(true))
   
-        //Set HTML block in shadow DOM of SAC
         this._root = this._shadowRoot.getElementById('root')
   
-        //_props object is used to hold properties infosrmation
         this._props = {}
   
-        //Call render() method to plot chart
-        this.render()
-  
-      }
-  
-      onCustomWidgetResize(width, height) {
         this.render()
       }
-
   
-      async render() {
-        await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js');
+      onCustomWidgetResize (width, height) {
+        this.render()
+      }
+  
+      async render () {
+        await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
   
         const chart = echarts.init(this._root)
         var data = [];
