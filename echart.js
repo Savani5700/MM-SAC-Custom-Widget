@@ -85,7 +85,9 @@ var getScriptPromisify = (src) => {
             }
           ],
           animationDuration: 2000
-        };
+        }
+
+        chart.setOption(option)
   
       }
     }
