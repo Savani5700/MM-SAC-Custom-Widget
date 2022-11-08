@@ -41,10 +41,10 @@ var getScriptPromisify = (src) => {
     }
 
     //render() method to plot chart - resultSet1 holds data from SAC table/chart.
-    set myDataSource(dataBinding) {
-      this._myDataSource = dataBinding
-      this.render()
-    }
+    // set myDataSource(dataBinding) {
+    //   this._myDataSource = dataBinding
+    //   this.render()
+    // }
 
     async render() {
       await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js');
