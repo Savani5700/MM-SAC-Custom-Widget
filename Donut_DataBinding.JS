@@ -1,4 +1,4 @@
-import * as echarts from 'echarts/dist/echarts.js';
+// import * as echarts from 'echarts/dist/echarts.js';
 
 var chartDom = document.getElementById('main');
 var myChart = echarts.init(chartDom);
