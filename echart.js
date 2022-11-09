@@ -41,7 +41,7 @@ var getScriptPromisify = (src) => {
         //   var r = Math.sin(2 * t) * Math.cos(2 * t);
         //   data.push([r, i]);
         // }
-        option = {
+        const option = {
           title: {
             text: 'Waterfall Chart',
             subtext: 'Living Expenses in Shenzhen'
