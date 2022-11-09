@@ -39,63 +39,84 @@ var getScriptPromisify = (src) => {
 
             const option = {
                 title: {
-                    text: 'Waterfall Chart',
-                    subtext: 'Living Expenses in Shenzhen'
+                  text: 'Accumulated Waterfall Chart'
                 },
                 tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {
-                        type: 'shadow'
-                    },
-                    formatter: function (params) {
-                        var tar = params[1];
-                        return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;
+                  trigger: 'axis',
+                  axisPointer: {
+                    type: 'shadow'
+                  },
+                  formatter: function (params) {
+                    let tar;
+                    if (params[1].value !== '-') {
+                      tar = params[1];
+                    } else {
+                      tar = params[0];
                     }
+                    return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;
+                  }
+                },
+                legend: {
+                  data: ['Expenses', 'Income']
                 },
                 grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
-                    containLabel: true
+                  left: '3%',
+                  right: '4%',
+                  bottom: '3%',
+                  containLabel: true
                 },
                 xAxis: {
-                    type: 'category',
-                    splitLine: { show: false },
-                    data: ['Total', 'Rent', 'Utilities', 'Transportation', 'Meals', 'Other']
+                  type: 'category',
+                  data: (function () {
+                    let list = [];
+                    for (let i = 1; i <= 11; i++) {
+                      list.push('Nov ' + i);
+                    }
+                    return list;
+                  })()
                 },
                 yAxis: {
-                    type: 'value'
+                  type: 'value'
                 },
                 series: [
-                    {
-                        name: 'Placeholder',
-                        type: 'bar',
-                        stack: 'Total',
-                        itemStyle: {
-                            borderColor: 'transparent',
-                            color: 'transparent'
-                        },
-                        emphasis: {
-                            itemStyle: {
-                                borderColor: 'transparent',
-                                color: 'transparent'
-                            }
-                        },
-                        data: [0, 1700, 1400, 1200, 300, 0]
+                  {
+                    name: 'Placeholder',
+                    type: 'bar',
+                    stack: 'Total',
+                    itemStyle: {
+                      borderColor: 'transparent',
+                      color: 'transparent'
                     },
-                    {
-                        name: 'Life Cost',
-                        type: 'bar',
-                        stack: 'Total',
-                        label: {
-                            show: true,
-                            position: 'inside'
-                        },
-                        data: [2900, 1200, 300, 200, 900, 300]
-                    }
+                    emphasis: {
+                      itemStyle: {
+                        borderColor: 'transparent',
+                        color: 'transparent'
+                      }
+                    },
+                    data: [0, 900, 1245, 1530, 1376, 1376, 1511, 1689, 1856, 1495, 1292]
+                  },
+                  {
+                    name: 'Income',
+                    type: 'bar',
+                    stack: 'Total',
+                    label: {
+                      show: true,
+                      position: 'top'
+                    },
+                    data: [900, 345, 393, '-', '-', 135, 178, 286, '-', '-', '-']
+                  },
+                  {
+                    name: 'Expenses',
+                    type: 'bar',
+                    stack: 'Total',
+                    label: {
+                      show: true,
+                      position: 'bottom'
+                    },
+                    data: ['-', '-', '-', 108, 154, '-', '-', '-', 119, 361, 203]
+                  }
                 ]
-            };
-
+              };
 
             chart.setOption(option)
 
