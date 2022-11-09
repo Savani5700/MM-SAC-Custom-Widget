@@ -36,45 +36,70 @@ var getScriptPromisify = (src) => {
         const chart = echarts.init(this._root)
         var data = [];
   
-        for (var i = 0; i <= 360; i++) {
-          var t = (i / 180) * Math.PI;
-          var r = Math.sin(2 * t) * Math.cos(2 * t);
-          data.push([r, i]);
-        }
-        const option = {
+        // for (var i = 0; i <= 360; i++) {
+        //   var t = (i / 180) * Math.PI;
+        //   var r = Math.sin(2 * t) * Math.cos(2 * t);
+        //   data.push([r, i]);
+        // }
+        option = {
           title: {
-            text: 'Two Value-Axes in Polar'
-          },
-          legend: {
-            data: ['line']
-          },
-          polar: {
-            center: ['50%', '54%']
+            text: 'Waterfall Chart',
+            subtext: 'Living Expenses in Shenzhen'
           },
           tooltip: {
             trigger: 'axis',
             axisPointer: {
-              type: 'cross'
+              type: 'shadow'
+            },
+            formatter: function (params) {
+              var tar = params[1];
+              return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;
             }
           },
-          angleAxis: {
-            type: 'value',
-            startAngle: 0
+          grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
           },
-          radiusAxis: {
-            min: 0
+          xAxis: {
+            type: 'category',
+            splitLine: { show: false },
+            data: ['Total', 'Rent', 'Utilities', 'Transportation', 'Meals', 'Other']
+          },
+          yAxis: {
+            type: 'value'
           },
           series: [
             {
-              coordinateSystem: 'polar',
-              name: 'line',
-              type: 'line',
-              showSymbol: false,
-              data: data
+              name: 'Placeholder',
+              type: 'bar',
+              stack: 'Total',
+              itemStyle: {
+                borderColor: 'transparent',
+                color: 'transparent'
+              },
+              emphasis: {
+                itemStyle: {
+                  borderColor: 'transparent',
+                  color: 'transparent'
+                }
+              },
+              data: [0, 1700, 1400, 1200, 300, 0]
+            },
+            {
+              name: 'Life Cost',
+              type: 'bar',
+              stack: 'Total',
+              label: {
+                show: true,
+                position: 'inside'
+              },
+              data: [2900, 1200, 300, 200, 900, 300]
             }
-          ],
-          animationDuration: 2000
-        }
+          ]
+        };
+        
 
         chart.setOption(option)
   
