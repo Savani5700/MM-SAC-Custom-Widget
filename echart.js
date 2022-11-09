@@ -70,7 +70,7 @@ var getScriptPromisify = (src) => {
             coordinateSystem: 'polar',
             name: 'line',
             type: 'line',
-            showSymbol: false,
+            showSymbol: true,
             data: data
           }
         ],
@@ -83,5 +83,3 @@ var getScriptPromisify = (src) => {
   }
   customElements.define('com-sap-sample-echart-prepared', SamplePrepared)
 })()
-
-
