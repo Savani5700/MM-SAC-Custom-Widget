@@ -101,7 +101,7 @@ var getScriptPromisify = (src) => {
 
         }
     }
-    customElements.define('com-sap-sample-echart-prepared', SamplePrepared)
+    customElements.define('com-sap-sample-Waterfall-prepared', SamplePrepared)
 })()
 
 
