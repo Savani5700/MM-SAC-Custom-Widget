@@ -1,0 +1,40 @@
+{
+	"eula": "",
+	"vendor": "Darshan SAVANI",
+	"license": "",
+	"id": "com.sap.sac.sample.echart.prepared",
+	"version": "1.1.1",
+	"name": "Apache_chart",
+	"newInstancePrefix": "Apache_chart",
+	"description": "Apache chart",
+	"webcomponents": [
+		{
+			"kind": "main",
+			"tag": "com-sap-sample-echart-prepared",
+			"url": "https://savani5700.github.io/MM-SAC-Custom-Widget.github.io/echart.js",
+			"integrity": "",
+			"ignoreIntegrity": true
+		}
+	],
+	"properties": {
+		"width": {
+			"type": "integer",
+			"default": 600
+		},
+		"height": {
+			"type": "integer",
+			"default": 420
+		}
+	},
+	"methods": {
+		"render": {
+			"description": "Render",
+			"parameters": []
+		}
+	},
+	"events": {
+		"onClick": {
+			"description": "Called when the user clicks the Box."
+		}
+	}
+}
