@@ -103,18 +103,18 @@ var getScriptPromisify = (src) => {
                       show: true,
                       position: 'top'
                     },
-                    data: [900, 345, 393, '-108', '-154', 135, 178, 286, '-119', '-361', '-203']
+                    data: [900, 345, 393, '-', '-', 135, 178, 286, '-', '-', '-']
                   },
-//                   {
-//                     name: 'Expenses',
-//                     type: 'bar',
-//                     stack: 'Total',
-//                     label: {
-//                       show: true,
-//                       position: 'bottom'
-//                     },
-//                     data: ['-', '-', '-', 108, 154, '-', '-', '-', 119, 361, 203]
-//                   }
+                  {
+                    name: 'Expenses',
+                    type: 'bar',
+                    stack: 'Total',
+                    label: {
+                      show: true,
+                      position: 'bottom'
+                    },
+                    data: ['-', '-', '-', 108, 154, '-', '-', '-', 119, 361, 203]
+                  }
                 ]
               };
 
