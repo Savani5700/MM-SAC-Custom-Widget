@@ -37,11 +37,11 @@ var getScriptPromisify = (src) => {
         this._props = {}
         
         //Call render() method to plot chart
-        this.render(this.resultSet, this.DimID, this.WF1, this.WF2)
+//         this.render(this.resultSet, this.DimID, this.WF1, this.WF2)
       }
 
       onCustomWidgetAfterUpdate() {
-        this.render(this.resultSet, this.DimID, this.WF1, this.WF2);
+//         this.render(this.resultSet, this.DimID, this.WF1, this.WF2);
       }
       
       //render() method to plot chart - resultSet1 holds data from SAC table/chart.
