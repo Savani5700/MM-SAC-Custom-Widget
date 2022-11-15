@@ -191,18 +191,18 @@ var getScriptPromisify = (src) => {
             },
             xaxis: {
                 type: "category",
-                // fixedrange: true,
-				// tickmode: 'array',
-				// ticktext: dim1,
-				// tickvals: dimid
+                fixedrange: true,
+				tickmode: 'array',
+				ticktext: dim1,
+				tickvals: dimid
             },
             yaxis: {
                 type: "linear",
-                // showgrid: false,
-                // fixedrange: true,
-                // tickfont: {
-				// 	color: 'white'
-                // }
+                showgrid: false,
+                fixedrange: true,
+                tickfont: {
+					color: 'white'
+                }
             },
             margin: {
               l: 20,
@@ -211,10 +211,9 @@ var getScriptPromisify = (src) => {
 			  b: btm
             },	
         },
-        // {
-        //    displayModeBar: false,
-        //    autosize: false
-        // }
+        {
+           displayModeBar: false
+        }
         );
         
       }
