@@ -65,16 +65,15 @@ var getScriptPromisify = (src) => {
         var recordCount = resultSet1.length;
 		
 		if(recordCount >= 6){
-        // w1 = Math.round(resultSet1[recordCount-3]["@MeasureDimension"].formattedValue);
         w1 = resultSet1[recordCount-3]["@MeasureDimension"].formattedValue;
         measure1.push(w1);
         dim1.push(WF11);
 		dimid.push(WF11);
         total = total + w1;
 
-        w2 = Math.round(resultSet1[recordCount-2]["@MeasureDimension"].formattedValue);
+        w2 = resultSet1[recordCount-2]["@MeasureDimension"].formattedValue;
 
-        m = Math.round(resultSet1[2]["@MeasureDimension"].formattedValue);
+        m = resultSet1[2]["@MeasureDimension"].formattedValue;
         measure1.push(m);
         total = total + m;
 		
@@ -87,7 +86,7 @@ var getScriptPromisify = (src) => {
 		}
 		
 		if(recordCount >= 9){
-        m = Math.round(resultSet1[5]["@MeasureDimension"].formattedValue);
+        m = resultSet1[5]["@MeasureDimension"].formattedValue;
         measure1.push(m);
         total = total + m;
 		
@@ -101,7 +100,7 @@ var getScriptPromisify = (src) => {
 		}
 		
 		if(recordCount >= 12){	
-        m = Math.round(resultSet1[8]["@MeasureDimension"].formattedValue);
+        m = resultSet1[8]["@MeasureDimension"].formattedValue;
         measure1.push(m);
         total = total + m;
 		
@@ -115,7 +114,7 @@ var getScriptPromisify = (src) => {
 		}
 		
 		if(recordCount >= 15){
-        m = Math.round(resultSet1[11]["@MeasureDimension"].formattedValue);
+        m = resultSet1[11]["@MeasureDimension"].formattedValue;
         measure1.push(m);
         total = total + m;
 		
