@@ -47,6 +47,8 @@ var getScriptPromisify = (src) => {
       //render() method to plot chart - resultSet1 holds data from SAC table/chart.
       async render (resultSet1,DimID1,WF11,WF21) {
 
+        await getScriptPromisify('https://cdn.plot.ly/plotly-2.16.1.min.js');
+
         var dim1 = [];
 		var dimid = [];
         var measure1 = [];
@@ -149,11 +151,6 @@ var getScriptPromisify = (src) => {
 		if(namelen >= 20){
 			btm = 100;
 		}
-
-
-
-
-        await getScriptPromisify('https://cdn.plot.ly/plotly-2.16.1.min.js');
 
         Plotly.newPlot(this._root, 
         [
