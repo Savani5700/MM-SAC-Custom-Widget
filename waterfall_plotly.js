@@ -76,7 +76,7 @@ var getScriptPromisify = (src) => {
         m = resultSet1[2]["@MeasureDimension"].formattedValue;
         measure1.push(m);
         total = total + m;
-		
+    		
 		name = resultSet1[2][DimID1].description;
 		namelen = name.length;
         dim1.push(name);
