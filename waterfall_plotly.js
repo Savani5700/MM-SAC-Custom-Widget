@@ -65,7 +65,8 @@ var getScriptPromisify = (src) => {
         var recordCount = resultSet1.length;
 		
 		if(recordCount >= 6){
-        w1 = Math.round(resultSet1[recordCount-3]["@MeasureDimension"].formattedValue);
+        // w1 = Math.round(resultSet1[recordCount-3]["@MeasureDimension"].formattedValue);
+        w1 = resultSet1[recordCount-3]["@MeasureDimension"].formattedValue;
         measure1.push(w1);
         dim1.push(WF11);
 		dimid.push(WF11);
