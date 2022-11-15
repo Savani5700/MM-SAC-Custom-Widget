@@ -212,7 +212,8 @@ var getScriptPromisify = (src) => {
             },	
         },
         {
-           displayModeBar: false
+           displayModeBar: false,
+           autosize: false
         }
         );
         
