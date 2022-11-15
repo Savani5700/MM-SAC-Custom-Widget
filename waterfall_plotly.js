@@ -212,7 +212,7 @@ var getScriptPromisify = (src) => {
             },	
         },
         {
-           displayModeBar: false
+           displayModeBar: true
         }
         );
         
