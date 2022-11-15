@@ -153,7 +153,7 @@ var getScriptPromisify = (src) => {
 
 
 
-        await getScriptPromisify('https://cdn.plot.ly/plotly-2.3.0.min.js');
+        await getScriptPromisify('https://cdn.plot.ly/plotly-2.16.1.min.js');
 
         Plotly.newPlot(this._root, 
         [
