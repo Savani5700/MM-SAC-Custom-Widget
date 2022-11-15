@@ -51,6 +51,7 @@ var getScriptPromisify = (src) => {
 
 
             await getScriptPromisify('https://cdn.plot.ly/plotly-2.3.0.min.js');
+            await getScriptPromisify('https://cdn.plot.ly/plotly-2.12.1.min.js');
 
             var dim1 = [];
             var dimid = [];
