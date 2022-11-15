@@ -211,10 +211,10 @@ var getScriptPromisify = (src) => {
 			  b: btm
             },	
         },
-        {
-           displayModeBar: false,
-           autosize: false
-        }
+        // {
+        //    displayModeBar: false,
+        //    autosize: false
+        // }
         );
         
       }
