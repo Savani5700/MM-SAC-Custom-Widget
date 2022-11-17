@@ -37,17 +37,15 @@ var getScriptPromisify = (src) => {
         this._props = {}
         
         //Call render() method to plot chart
-        // this.render(this.resultSet, this.DimID, this.WF1, this.WF2)
+        this.render(this.resultSet, this.DimID, this.WF1, this.WF2)
       }
 
       onCustomWidgetAfterUpdate() {
-        // this.render(this.resultSet, this.DimID, this.WF1, this.WF2);
+        this.render(this.resultSet, this.DimID, this.WF1, this.WF2);
       }
       
       //render() method to plot chart - resultSet1 holds data from SAC table/chart.
       async render (resultSet1,DimID1,WF11,WF21) {
-
-        await getScriptPromisify('https://cdn.plot.ly/plotly-2.16.1.min.js');
 
         var dim1 = [];
 		var dimid = [];
@@ -65,18 +63,18 @@ var getScriptPromisify = (src) => {
         var recordCount = resultSet1.length;
 		
 		if(recordCount >= 6){
-        w1 = resultSet1[recordCount-3]["@MeasureDimension"].formattedValue;
+        w1 = Math.round(resultSet1[recordCount-3]["@MeasureDimension"].rawValue);
         measure1.push(w1);
         dim1.push(WF11);
 		dimid.push(WF11);
         total = total + w1;
 
-        w2 = resultSet1[recordCount-2]["@MeasureDimension"].formattedValue;
+        w2 = Math.round(resultSet1[recordCount-2]["@MeasureDimension"].rawValue);
 
-        m = resultSet1[2]["@MeasureDimension"].formattedValue;
+        m = Math.round(resultSet1[2]["@MeasureDimension"].rawValue);
         measure1.push(m);
         total = total + m;
-    		
+		
 		name = resultSet1[2][DimID1].description;
 		namelen = name.length;
         dim1.push(name);
@@ -86,7 +84,7 @@ var getScriptPromisify = (src) => {
 		}
 		
 		if(recordCount >= 9){
-        m = resultSet1[5]["@MeasureDimension"].formattedValue;
+        m = Math.round(resultSet1[5]["@MeasureDimension"].rawValue);
         measure1.push(m);
         total = total + m;
 		
@@ -100,7 +98,7 @@ var getScriptPromisify = (src) => {
 		}
 		
 		if(recordCount >= 12){	
-        m = resultSet1[8]["@MeasureDimension"].formattedValue;
+        m = Math.round(resultSet1[8]["@MeasureDimension"].rawValue);
         measure1.push(m);
         total = total + m;
 		
@@ -114,7 +112,7 @@ var getScriptPromisify = (src) => {
 		}
 		
 		if(recordCount >= 15){
-        m = resultSet1[11]["@MeasureDimension"].formattedValue;
+        m = Math.round(resultSet1[11]["@MeasureDimension"].rawValue);
         measure1.push(m);
         total = total + m;
 		
@@ -151,6 +149,11 @@ var getScriptPromisify = (src) => {
 		if(namelen >= 20){
 			btm = 100;
 		}
+
+
+
+
+        await getScriptPromisify('https://cdn.plot.ly/plotly-2.3.0.min.js');
 
         Plotly.newPlot(this._root, 
         [
