@@ -34,141 +34,175 @@ async render() {
 await getScriptPromisify('hhttps://www.amcharts.com/lib/4/charts.js')
 await getScriptPromisify('https://www.amcharts.com/lib/4/core.js')
 
-/* am4core.useTheme(am4themes_animated); */
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
 
 // Create chart instance
 var chart = am4core.create("chartdiv", am4charts.XYChart);
 
 // Add data
 chart.data = [{
-  "date": new Date(2018, 3, 20),
-  "v1":50,
-  "rf":70
+  "year": "2000",
+  "europe": 2.5,
+  "namerica": 2.5,
+  "asia": 2.1,
+  "lamerica": 1.2,
+  "meast": 0.2,
+  "africa": -0.2
 }, {
-  "date": new Date(2018, 3, 21),
-  "v1":35,
-  "rf":70
+  "year": "2001",
+  "europe": 2.5,
+  "namerica": 0.5,
+  "asia": 2.1,
+  "lamerica": 1.2,
+  "meast": 0.2,
+  "africa": -0.15
 }, {
-  "date": new Date(2018, 3, 22),
-  "value": 100,
-  "value1": 88,
-  "v1":15,
-  "rf":70
-}, {
-  "date": new Date(2018, 3, 23), 
-  "v1":70,
-  "rf":70
-}, {
-  "date": new Date(2018, 3, 24),
-  "v1":60,
-  "rf":70
-}, {
-  "date": new Date(2018, 3, 25),
-  "v1":55,
-  "rf":70
-}, {
-  "date": new Date(2018, 3, 26),
-  "value": 100,
-  "value1": 88,
-  "v1":55,
-  "rf":70
-}, {
-  "date": new Date(2018, 3, 27),
-  "v1":55,
-  "rf":70
-}, {
-  "date": new Date(2018, 3, 28),
-  "value": 100,
-  "value1": 88,
-  "v1":55,
-  "rf":70
-}, {
-  "date": new Date(2018, 3, 29),
-  "v1":55,
-  "rf":70
-}, {
-  "date": new Date(2018, 3, 30),
-  "v1":55,
-  "rf":70
-}];
+  "year": "2002",
+  "europe": 2.8,
+  "namerica": 2.9,
+  "asia": -2.4,
+  "lamerica": 1.4,
+  "meast": -0.3,
+  "africa": 0.3
+},
+              {
+                "year": "2003",
+                "europe": 2.5,
+                "namerica": -2.5,
+                "asia": 2.1,
+                "lamerica": 1.2,
+                "meast": 0.2,
+                "africa": -0.1
+              }, {
+                "year": "2004",
+                "europe": 2.6,
+                "namerica": 2.7,
+                "asia": -2.2,
+                "lamerica": 1.3,
+                "meast": 0.3,
+                "africa": 0.1
+              }, {
+                "year": "2005",
+                "europe": 2.8,
+                "namerica": 2.9,
+                "asia": -2.4,
+                "lamerica": 1.4,
+                "meast": -0.3,
+                "africa": 0.2
+              }, {
+                "year": "2006",
+                "europe": 2.8,
+                "namerica": 2.9,
+                "asia": -2.4,
+                "lamerica": 1.4,
+                "meast": -0.3,
+                "africa": 0.2
+              }, {
+                "year": "2007",
+                "europe": 2.5,
+                "namerica": 2.5,
+                "asia": 2.1,
+                "lamerica": 1.2,
+                "meast": 0.2,
+                "africa": -0.2
+              }, {
+                "year": "2008",
+                "europe": 2.8,
+                "namerica": 2.9,
+                "asia": -2.4,
+                "lamerica": 1.4,
+                "meast": -0.3,
+                "africa": 0.2
+              }, {
+                "year": "2009",
+                "europe": 2.5,
+                "namerica": 0.5,
+                "asia": 2.1,
+                "lamerica": 1.2,
+                "meast": 0.2,
+                "africa": -0.15
+              }, {
+                "year": "2010",
+                "europe": 2.8,
+                "namerica": 5,
+                "asia": -2.4,
+                "lamerica": 1.4,
+                "meast": -0.3,
+                "africa": 0.4
+              }, {
+                "year": "2011",
+                "europe": 2.8,
+                "namerica": 2.9,
+                "asia": -2.4,
+                "lamerica": 1.4,
+                "meast": -0.3,
+                "africa": 0.2
+              }, {
+                "year": "2012",
+                "europe": 2.5,
+                "namerica": 0.5,
+                "asia": 2.1,
+                "lamerica": 1.2,
+                "meast": 0.2,
+                "africa": -0.15
+              }
+             ];
 
 // Create axes
-var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-/* dateAxis.startLocation = 1;
-dateAxis.endLocation = 0; */
-dateAxis.renderer.minGridDistance = 1;
+var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+categoryAxis.dataFields.category = "year";
+categoryAxis.title.text = "Profit & Loss Summary";
+categoryAxis.renderer.grid.template.location = 0;
+categoryAxis.renderer.minGridDistance = 20
+categoryAxis.renderer.cellStartLocation = 0.1;
+categoryAxis.renderer.cellEndLocation = 0.9;
+categoryAxis.renderer.grid.template.strokeWidth = 0.2;
 
-// Create value axis
 var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-valueAxis.max=100;
+valueAxis.min = 0;
+valueAxis.title.text = "Sales, COGS";
+var valueAxis1 = chart.yAxes.push(new am4charts.ValueAxis());
+valueAxis1.renderer.opposite = true;
+valueAxis1.title.text = "Profit Loss";
+valueAxis1.renderer.grid.template.strokeWidth = 0;
+// Configure number formatter
+valueAxis.numberFormatter.numberFormat = '$#,###.#M';
 
-var ranges1 = dateAxis.axisRanges.create();
-ranges1.date = new Date(2018, 3, 21);
-ranges1.grid.stroke = am4core.color("red");
-ranges1.grid.strokeWidth = 4;
-ranges1.opacity = 1;
-ranges1.label.text = "[bold]|"+"[normal] Gx Entry-Date : "+"[bold]{date}";
-ranges1.label.dy = -355.5;
-ranges1.label.dx = 88 ;
-ranges1.label.fill = "#616161";
+// Create series
+function createSeries(field, name, stacked, yaxis, color) {
+  var series = chart.series.push(new am4charts.ColumnSeries());
+  series.dataFields.valueY = field;
+  series.yAxis = yaxis;
+  series.dataFields.categoryX = "year";
+  series.name = name;
+  series.columns.template.tooltipText = "{name}: [bold]{valueY}[/]";
+  series.stacked = stacked;
+  series.columns.template.width = am4core.percent(95);
+  ;
 
-var seriesA = chart.series.push(new am4charts.LineSeries());
-seriesA.dataFields.valueY = "v1";
-seriesA.dataFields.dateX = "date";
-seriesA.tooltipText = "{dateX} : {valueY}";
+  series.columns.template.adapter.add("fill", function(fill, target) {
+    if (target.dataItem && (target.dataItem.valueY < 0)) {
+      return am4core.color("#ff4a4a");
+    } else {
+      return fill;
+    }
+  });
+series.columns.template.width = am4core.percent(100);
+ /*  
+  let bullet = series.bullets.push(new am4charts.LabelBullet);
+  
+                                   bullet.label.text = "{valueY}"; */
+                                   }
 
-var seriesRF = chart.series.push(new am4charts.LineSeries());
-seriesRF.dataFields.valueY = "rf";
-seriesRF.dataFields.dateX = "date";
-seriesRF.strokeDasharray = "3,3"
-seriesRF.tooltipText = "{dateX} : {valueY}";
+createSeries("europe", "Profit", false, valueAxis);
+createSeries("namerica", "Sales", true, valueAxis);
+createSeries("africa", "COGS", true, valueAxis1);
 
-var ranges1 = dateAxis.axisRanges.create();
-ranges1.date = new Date(2018, 3, 25);
-ranges1.endDate = new Date(2018, 3, 30);
-ranges1.axisFill.fill = am4core.color("#FF0000");
-ranges1.grid.disabled = true;
-ranges1.axisFill.fillOpacity = 0.1;
-ranges1.label.inside = true;
-ranges1.label.text = "[bold]|"+"[normal] Gx Entry-Date : "+"[bold]{date}";
-ranges1.label.dy = -314.86;
-ranges1.label.dx = 88 ;
-ranges1.label.fill = "#FF0000";
 
-var ranges1 = dateAxis.axisRanges.create();
-ranges1.date = new Date(2018, 3, 22);
-console.log(ranges1.date);
-ranges1.endDate = new Date(2018, 3, 27);
-ranges1.axisFill.fill = am4core.color("#0000FF");
-ranges1.grid.disabled = true;
-ranges1.axisFill.fillOpacity = 0.1;
-ranges1.label.inside = true;
-ranges1.label.text = "[bold]|"+"[normal] Gx Entry-Date : "+"[bold]{date}";
-ranges1.label.dy = -295.5;
-ranges1.label.dx = 89 ;
-ranges1.label.fill = "#0000FF";
-
-/* ranges1.label.inside = true; */
-var ranges1 = dateAxis.axisRanges.create();
-ranges1.date = new Date(2018, 3, 29);
-ranges1.grid.stroke = am4core.color("green");
-ranges1.grid.strokeWidth = 4;
-ranges1.grid.strokeDasharray = "3,3";
-dateAxis.cursorTooltipEnabled = false;
-valueAxis.cursorTooltipEnabled = false;
-
-chart.cursor = new am4charts.XYCursor();
-chart.dateFormatter.dateFormat = "MMM-yyyy";
-
-chart.scrollbarX = new am4core.Scrollbar();
-chart.scrollbarX.parent = chart.bottomAxesContainer;
-chart.scrollbarX.endGrip.icon.disabled = true; 
-chart.scrollbarX.startGrip.icon.disabled = true;
-/* chart.scrollbarX.grip.icon.disabled = true; */ 
-
-chart.scrollbarX.minHeight = 5;
-
-chart.cursor.behavior = "none";
+// Add legend
+/* chart.legend = new am4charts.Legend(); */
 
 }
 }
