@@ -33,6 +33,9 @@ this.render()
 async render() {
 await getScriptPromisify('hhttps://www.amcharts.com/lib/4/charts.js')
 await getScriptPromisify('https://www.amcharts.com/lib/4/core.js')
+await getScriptPromisify('https://cdn.amcharts.com/lib/4/themes/animated.js')
+  
+
 
 // Themes begin
 am4core.useTheme(am4themes_animated);
