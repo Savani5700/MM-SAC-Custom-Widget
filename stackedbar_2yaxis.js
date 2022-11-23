@@ -42,7 +42,7 @@ am4core.useTheme(am4themes_animated);
 // Themes end
 
 // Create chart instance
-var chart = am4core.create("chartdiv", am4charts.XYChart);
+var chart = am4core.create(this._root, am4charts.XYChart);
 
 // Add data
 chart.data = [{
