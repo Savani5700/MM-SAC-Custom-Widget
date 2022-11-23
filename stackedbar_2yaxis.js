@@ -181,13 +181,12 @@ var getScriptPromisify = (src) => {
         series.columns.template.tooltipText = "{name}: [bold]{valueY}[/]";
         series.stacked = stacked;
         series.columns.template.width = am4core.percent(95);
-        ;
 
         series.columns.template.adapter.add("fill", function (fill, target) {
           if (target.dataItem && (target.dataItem.valueY < 0)) {
             return am4core.color("#ff4a4a");
           } else {
-            return fill;
+            return am4core.color(color);
           }
         });
         series.columns.template.width = am4core.percent(100);
@@ -197,10 +196,9 @@ var getScriptPromisify = (src) => {
                                           bullet.label.text = "{valueY}"; */
       }
 
-      createSeries("europe", "Profit", false, valueAxis);
-      createSeries("namerica", "Sales", true, valueAxis);
-      createSeries("africa", "COGS", true, valueAxis1);
-
+      createSeries("europe", "COGS", false, valueAxis, "#204666");
+      createSeries("namerica", "Sales", true, valueAxis, "#f3b026");
+      createSeries("africa", "Profit", true, valueAxis1, "#02a264");
 
       // Add legend
       /* chart.legend = new am4charts.Legend(); */
