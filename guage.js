@@ -2,12 +2,7 @@
 	let template = document.createElement("template");
 	template.innerHTML = `
 		<style>
-		:host {
-			border-radius: 10px;
-			border-width: 1px;
-			border-style: solid;
-			display: block;
-		} 
+		:host
 		body {
 		  background: #fff;
 		}
