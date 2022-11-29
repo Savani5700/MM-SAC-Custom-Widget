@@ -50,6 +50,7 @@ var getScriptPromisify = (src) => {
         salestarget : resultset1[i]["Account"].rawValue
         }
       }
+      chart.data = data;
       // chart.data = [
       //   {
       //     country: "Lithuania",
@@ -85,7 +86,7 @@ var getScriptPromisify = (src) => {
       var series = chart.series.push(new am4charts.PieSeries3D());
       series.dataFields.value = "salestarget";
       series.dataFields.depthValue = "salestarget";
-      series.dataFields.category = "Categiry";
+      series.dataFields.category = "Category";
       series.slices.template.cornerRadius = 5;
       series.colors.step = 3;
 
