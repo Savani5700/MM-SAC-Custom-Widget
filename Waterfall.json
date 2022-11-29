@@ -29,7 +29,11 @@
 	"methods": {
 		"render": {
 			"description": "Render",
-			"parameters": []
+			"parameters": [{
+				"name":"resultSet",
+				"type":"any",
+				"description":"The json"
+			  }]
 		}
 	},
 	"events": {

@@ -23,14 +23,14 @@ var getScriptPromisify = (src) => {
 
       this._props = {}
 
-      this.render()
+      this.render(this._resultSet)
     }
 
     onCustomWidgetResize(width, height) {
       this.render()
     }
 
-    async render() {
+    async render(resultSet1) {
       await getScriptPromisify('https://cdn.amcharts.com/lib/4/core.js');
       await getScriptPromisify('https://cdn.amcharts.com/lib/4/themes/animated.js');
       await getScriptPromisify('https://cdn.amcharts.com/lib/4/charts.js');
