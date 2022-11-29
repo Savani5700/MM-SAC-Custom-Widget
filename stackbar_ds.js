@@ -23,11 +23,11 @@ var getScriptPromisify = (src) => {
   
         this._props = {}
   
-        this.render()
+        this.render(this._resultset)
       }
   
       onCustomWidgetResize(width, height) {
-        this.render()
+        // this.render()
       }
   
       async render(resultset) {
@@ -39,6 +39,7 @@ var getScriptPromisify = (src) => {
         am4core.useTheme(am4themes_animated);
         // Themes end
         console.log(resultset);
+        console.log(this._resultset);
         // Create chart instance
         var chart = am4core.create(this._root, am4charts.XYChart);
   
