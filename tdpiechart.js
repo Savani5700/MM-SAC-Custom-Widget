@@ -1,119 +1,88 @@
 var getScriptPromisify = (src) => {
-    return new Promise(resolve => {
-      $.getScript(src, resolve)
-    })
-  }
-  
-  (function () {
-    const prepared = document.createElement('template')
-    prepared.innerHTML = `
-  <style>
-  </style>
-  <div id="root" style="width: 100%; height: 100%;">
-  </div>
-  `
-    class SamplePrepared extends HTMLElement {
-      constructor() {
-        super()
-  
-        this._shadowRoot = this.attachShadow({ mode: 'open' })
-        this._shadowRoot.appendChild(prepared.content.cloneNode(true))
-  
-        this._root = this._shadowRoot.getElementById('root')
-  
-        this._props = {}
-  
-        // this.render(this._resultset)
-      }
-  
-      // onCustomWidgetResize(width, height) {
-      //   // this.render()
-      // }
-  
-      async render(resultset1) {
-        await getScriptPromisify('https://cdn.amcharts.com/lib/4/core.js');
-        await getScriptPromisify('https://cdn.amcharts.com/lib/4/themes/animated.js');
-        await getScriptPromisify('https://cdn.amcharts.com/lib/4/charts.js');
-  
-        // Themes begin
-        am4core.useTheme(am4themes_animated);
-        // Themes end
-        
-        // Create chart instance
-        var chart = am4core.create(this._root, am4charts.XYChart);
-  
-        console.log(resultset1);
+  return new Promise(resolve => {
+    $.getScript(src, resolve)
+  })
+}
 
-        var data = [];
-        // Add data
+(function () {
+  const prepared = document.createElement('template')
+  prepared.innerHTML = `
+<style>
+</style>
+<div id="root" style="width: 100%; height: 100%;">
+</div>
+`
+  class SamplePrepared extends HTMLElement {
+    constructor() {
+      super()
 
-        for(var i=0; i<resultset1.length;i = i+3){
+      this._shadowRoot = this.attachShadow({ mode: 'open' })
+      this._shadowRoot.appendChild(prepared.content.cloneNode(true))
 
-          var a = {
-            year : resultset1[i]["Invoice_Date"].description,
-            profit : resultset1[i]["@MeasureDimension"].rawValue,
-            sales : resultset1[i+1]["@MeasureDimension"].rawValue,
-            cogs : resultset1[i+2]["@MeasureDimension"].rawValue
-          }
+      this._root = this._shadowRoot.getElementById('root')
 
-          data.push(a);
+      this._props = {}
 
-        }
-        // console.log(data);
-
-        chart.data = data;
-  
-        // Create axes
-        
-        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-        categoryAxis.dataFields.category = "year";
-        categoryAxis.title.text = "Profit & Loss Summary";
-        categoryAxis.renderer.grid.template.location = 0;
-        categoryAxis.renderer.minGridDistance = 20
-        categoryAxis.renderer.cellStartLocation = 0.1;
-        categoryAxis.renderer.cellEndLocation = 0.9;
-        categoryAxis.renderer.grid.template.strokeWidth = 0.2;
-  
-        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-        valueAxis.min = 0;
-        valueAxis.title.text = "Sales, COGS";
-        var valueAxis1 = chart.yAxes.push(new am4charts.ValueAxis());
-        valueAxis1.renderer.opposite = true;
-        valueAxis1.title.text = "Profit Loss";
-        valueAxis1.renderer.grid.template.strokeWidth = 0;
-        // Configure number formatter
-        valueAxis.numberFormatter.numberFormat = '$#.#M';
-  
-        // Create series
-        function createSeries(field, name, stacked, yaxis, color) {
-          var series = chart.series.push(new am4charts.ColumnSeries());
-          series.dataFields.valueY = field;
-          series.yAxis = yaxis;
-          series.dataFields.categoryX = "year";
-          series.name = name;
-          series.columns.template.tooltipText = "{name}: [bold]{valueY}[/]";
-          series.stacked = stacked;
-          series.columns.template.width = am4core.percent(95);
-  
-          series.columns.template.adapter.add("fill", function (fill, target) {
-            if (target.dataItem && (target.dataItem.valueY < 0)) {
-              return am4core.color("#ff4a4a");
-            } else {
-              return am4core.color(color);
-            }
-          });
-          series.columns.template.width = am4core.percent(100);
-        }
-  
-        createSeries("profit", "Profit", false, valueAxis, "#204666");
-        createSeries("sales", "Sales", true, valueAxis, "#f3b026");
-        createSeries("cogs", "COGS", true, valueAxis1, "#02a264");
-  
-        // Add legend
-        /* chart.legend = new am4charts.Legend(); */
-  
-      }
+      // this.render(this._resultset)
     }
-    customElements.define('com-sap-sample-tdpiechart-prepared', SamplePrepared)
-  })()
-  
+
+    // onCustomWidgetResize(width, height) {
+    //   // this.render()
+    // }
+
+    async render(resultset1) {
+      await getScriptPromisify('https://cdn.amcharts.com/lib/4/core.js');
+      await getScriptPromisify('https://cdn.amcharts.com/lib/4/themes/animated.js');
+      await getScriptPromisify('https://cdn.amcharts.com/lib/4/charts.js');
+
+      // Themes begin
+      am4core.useTheme(am4themes_animated);
+      // Themes end
+
+      var chart = am4core.create("chartdiv", am4charts.PieChart3D);
+      chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+      chart.data = [
+        {
+          country: "Lithuania",
+          litres: 501.9
+        },
+        {
+          country: "Czech Republic",
+          litres: 301.9
+        },
+        {
+          country: "Ireland",
+          litres: 201.1
+        },
+        {
+          country: "Germany",
+          litres: 165.8
+        },
+        {
+          country: "Australia",
+          litres: 139.9
+        },
+        {
+          country: "Austria",
+          litres: 128.3
+        }
+      ];
+
+      chart.innerRadius = am4core.percent(40);
+      chart.depth = 120;
+
+      chart.legend = new am4charts.Legend();
+
+      var series = chart.series.push(new am4charts.PieSeries3D());
+      series.dataFields.value = "litres";
+      series.dataFields.depthValue = "litres";
+      series.dataFields.category = "country";
+      series.slices.template.cornerRadius = 5;
+      series.colors.step = 3;
+
+    }
+  }
+  customElements.define('com-sap-sample-tdpiechart-prepared', SamplePrepared)
+})()
+
