@@ -59,9 +59,9 @@ var getScriptPromisify = (src) => {
           data.push(a);
 
         }
+        console.log(data);
 
         chart.data = data;
-
 
         // chart.data = [{
         //   "year": "2000",
