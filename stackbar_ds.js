@@ -47,7 +47,7 @@ var getScriptPromisify = (src) => {
         var data = [];
         // Add data
 
-        for(var i=0; i<resultset1.length; i+3){
+        for(var i=0; i<resultset1.length-3; i+3){
 
           var a = {
             year : resultset1[i]["Invoice_Date"].description,
