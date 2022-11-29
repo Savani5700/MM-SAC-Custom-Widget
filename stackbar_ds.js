@@ -44,6 +44,7 @@ var getScriptPromisify = (src) => {
   
         console.log(resultset1);
         console.log(this.resultset);
+        console.log(this._resultset);
         // Add data
         chart.data = [{
           "year": "2000",
