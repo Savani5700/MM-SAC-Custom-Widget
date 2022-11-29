@@ -1,0 +1,40 @@
+{
+	"eula": "",
+	"vendor": "Darshan SAVANI",
+	"license": "",
+	"id": "com.sap.sac.sample.stackbar.prepared",
+	"version": "1.1.1",
+	"name": "stackbar",
+	"newInstancePrefix": "stackbar",
+	"description": "am4chart",
+	"webcomponents": [
+		{
+			"kind": "main",
+			"tag": "com-sap-sample-stackbar-prepared",
+			"url": "https://0867-2405-201-200d-9ab2-898-281f-d0fc-f7d0.in.ngrok.io/static/stackbar_ds.js",
+			"integrity": "",
+			"ignoreIntegrity": true
+		}
+	],
+	"properties": {
+		"width": {
+			"type": "integer",
+			"default": 600
+		},
+		"height": {
+			"type": "integer",
+			"default": 420
+		}
+	},
+	"methods": {
+		"render": {
+			"description": "Render",
+			"parameters": []
+		}
+	},
+	"events": {
+		"onClick": {
+			"description": "Called when the user clicks the Box."
+		}
+	}
+}
