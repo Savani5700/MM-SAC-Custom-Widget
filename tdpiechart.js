@@ -49,6 +49,8 @@ var getScriptPromisify = (src) => {
         category : resultset1[i]["Category"].description,
         salestarget : resultset1[i]["Account"].rawValue
         }
+
+        data.push(a);
       }
       chart.data = data;
       // chart.data = [
