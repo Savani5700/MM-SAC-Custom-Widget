@@ -50,10 +50,10 @@ var getScriptPromisify = (src) => {
         for(var i=0; i<resultset1.length; i+3){
 
           var a = {
-            year : resultSet1[i]["Invoice_Date"].description,
-            profit : resultSet1[i]["@MeasureDimension"].rawValue,
-            sales : resultSet1[i]["@MeasureDimension"].rawValue,
-            cogs : resultSet1[i]["@MeasureDimension"].rawValue
+            year : resultset1[i]["Invoice_Date"].description,
+            profit : resultset1[i]["@MeasureDimension"].rawValue,
+            sales : resultset1[i]["@MeasureDimension"].rawValue,
+            cogs : resultset1[i]["@MeasureDimension"].rawValue
           }
 
           data.push(a);
