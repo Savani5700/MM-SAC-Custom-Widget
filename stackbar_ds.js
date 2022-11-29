@@ -30,7 +30,7 @@ var getScriptPromisify = (src) => {
         this.render()
       }
   
-      async render() {
+      async render(resultset) {
         await getScriptPromisify('https://cdn.amcharts.com/lib/4/core.js');
         await getScriptPromisify('https://cdn.amcharts.com/lib/4/themes/animated.js');
         await getScriptPromisify('https://cdn.amcharts.com/lib/4/charts.js');
