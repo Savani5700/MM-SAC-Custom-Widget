@@ -46,7 +46,7 @@ var getScriptPromisify = (src) => {
 
       for(var i=0; i<resultset1.length;i++){
         var a ={
-        category : resultset1[i]["Category"].description,
+        category : resultset1[i]["Sub-Category"].description,
         salestarget : resultset1[i]["Account"].rawValue
         }
 
