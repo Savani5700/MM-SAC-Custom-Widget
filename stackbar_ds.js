@@ -190,7 +190,7 @@ var getScriptPromisify = (src) => {
         valueAxis1.title.text = "Profit Loss";
         valueAxis1.renderer.grid.template.strokeWidth = 0;
         // Configure number formatter
-        valueAxis.numberFormatter.numberFormat = '$#.#M';
+        // valueAxis.numberFormatter.numberFormat = '$#.#M';
   
         // Create series
         function createSeries(field, name, stacked, yaxis, color) {
