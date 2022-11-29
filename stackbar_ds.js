@@ -211,10 +211,6 @@ var getScriptPromisify = (src) => {
             }
           });
           series.columns.template.width = am4core.percent(100);
-          /*  
-           let bullet = series.bullets.push(new am4charts.LabelBullet);
-           
-                                            bullet.label.text = "{valueY}"; */
         }
   
         createSeries("cogs", "COGS", false, valueAxis, "#204666");
