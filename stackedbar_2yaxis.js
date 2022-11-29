@@ -23,14 +23,14 @@ var getScriptPromisify = (src) => {
 
       this._props = {}
 
-      this.render(this._resultSet)
+      this.render()
     }
 
     onCustomWidgetResize(width, height) {
       this.render()
     }
 
-    async render(resultSet1) {
+    async render() {
       await getScriptPromisify('https://cdn.amcharts.com/lib/4/core.js');
       await getScriptPromisify('https://cdn.amcharts.com/lib/4/themes/animated.js');
       await getScriptPromisify('https://cdn.amcharts.com/lib/4/charts.js');
@@ -190,7 +190,12 @@ var getScriptPromisify = (src) => {
           }
         });
         series.columns.template.width = am4core.percent(100);
+        /*  
+         let bullet = series.bullets.push(new am4charts.LabelBullet);
+         
+                                          bullet.label.text = "{valueY}"; */
       }
+
       createSeries("europe", "COGS", false, valueAxis, "#204666");
       createSeries("namerica", "Sales", true, valueAxis, "#f3b026");
       createSeries("africa", "Profit", true, valueAxis1, "#02a264");
