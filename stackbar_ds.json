@@ -2,10 +2,10 @@
 	"eula": "",
 	"vendor": "Darshan SAVANI",
 	"license": "",
-	"id": "com.sap.sac.sample.stackbar.prepared",
+	"id": "com.sap.sac.sample.stackbards.prepared",
 	"version": "1.1.1",
-	"name": "stackbar",
-	"newInstancePrefix": "stackbar",
+	"name": "stackbards",
+	"newInstancePrefix": "stackbards",
 	"description": "am4chart",
 	"webcomponents": [
 		{

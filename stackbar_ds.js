@@ -205,6 +205,6 @@ var getScriptPromisify = (src) => {
   
       }
     }
-    customElements.define('com-sap-sample-stackbar-prepared', SamplePrepared)
+    customElements.define('com-sap-sample-stackbards-prepared', SamplePrepared)
   })()
   
