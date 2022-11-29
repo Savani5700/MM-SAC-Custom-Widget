@@ -26,9 +26,9 @@ var getScriptPromisify = (src) => {
         this.render(this._resultset)
       }
   
-      onCustomWidgetResize(width, height) {
-        // this.render()
-      }
+      // onCustomWidgetResize(width, height) {
+      //   // this.render()
+      // }
   
       async render(resultset1) {
         await getScriptPromisify('https://cdn.amcharts.com/lib/4/core.js');
@@ -38,11 +38,12 @@ var getScriptPromisify = (src) => {
         // Themes begin
         am4core.useTheme(am4themes_animated);
         // Themes end
-        console.log(resultset1);
-        console.log(this.resultset);
+        
         // Create chart instance
         var chart = am4core.create(this._root, am4charts.XYChart);
   
+        console.log(resultset1);
+        console.log(this.resultset);
         // Add data
         chart.data = [{
           "year": "2000",
