@@ -190,12 +190,7 @@ var getScriptPromisify = (src) => {
           }
         });
         series.columns.template.width = am4core.percent(100);
-        /*  
-         let bullet = series.bullets.push(new am4charts.LabelBullet);
-         
-                                          bullet.label.text = "{valueY}"; */
       }
-
       createSeries("europe", "COGS", false, valueAxis, "#204666");
       createSeries("namerica", "Sales", true, valueAxis, "#f3b026");
       createSeries("africa", "Profit", true, valueAxis1, "#02a264");
