@@ -59,7 +59,7 @@ var getScriptPromisify = (src) => {
           data.push(a);
 
         }
-        console.log(data);
+        // console.log(data);
 
         chart.data = data;
 
