@@ -43,118 +43,136 @@ var getScriptPromisify = (src) => {
         var chart = am4core.create(this._root, am4charts.XYChart);
   
         console.log(resultset1);
-        console.log(this.resultset);
-        console.log(this._resultset);
+
+        var data = [];
         // Add data
-        chart.data = [{
-          "year": "2000",
-          "europe": 2.5,
-          "namerica": 2.5,
-          "asia": 2.1,
-          "lamerica": 1.2,
-          "meast": 0.2,
-          "africa": -0.2
-        }, {
-          "year": "2001",
-          "europe": 2.5,
-          "namerica": 0.5,
-          "asia": 2.1,
-          "lamerica": 1.2,
-          "meast": 0.2,
-          "africa": -0.15
-        }, {
-          "year": "2002",
-          "europe": 2.8,
-          "namerica": 2.9,
-          "asia": -2.4,
-          "lamerica": 1.4,
-          "meast": -0.3,
-          "africa": 0.3
-        },
-        {
-          "year": "2003",
-          "europe": 2.5,
-          "namerica": -2.5,
-          "asia": 2.1,
-          "lamerica": 1.2,
-          "meast": 0.2,
-          "africa": -0.1
-        }, {
-          "year": "2004",
-          "europe": 2.6,
-          "namerica": 2.7,
-          "asia": -2.2,
-          "lamerica": 1.3,
-          "meast": 0.3,
-          "africa": 0.1
-        }, {
-          "year": "2005",
-          "europe": 2.8,
-          "namerica": 2.9,
-          "asia": -2.4,
-          "lamerica": 1.4,
-          "meast": -0.3,
-          "africa": 0.2
-        }, {
-          "year": "2006",
-          "europe": 2.8,
-          "namerica": 2.9,
-          "asia": -2.4,
-          "lamerica": 1.4,
-          "meast": -0.3,
-          "africa": 0.2
-        }, {
-          "year": "2007",
-          "europe": 2.5,
-          "namerica": 2.5,
-          "asia": 2.1,
-          "lamerica": 1.2,
-          "meast": 0.2,
-          "africa": -0.2
-        }, {
-          "year": "2008",
-          "europe": 2.8,
-          "namerica": 2.9,
-          "asia": -2.4,
-          "lamerica": 1.4,
-          "meast": -0.3,
-          "africa": 0.2
-        }, {
-          "year": "2009",
-          "europe": 2.5,
-          "namerica": 0.5,
-          "asia": 2.1,
-          "lamerica": 1.2,
-          "meast": 0.2,
-          "africa": -0.15
-        }, {
-          "year": "2010",
-          "europe": 2.8,
-          "namerica": 5,
-          "asia": -2.4,
-          "lamerica": 1.4,
-          "meast": -0.3,
-          "africa": 0.4
-        }, {
-          "year": "2011",
-          "europe": 2.8,
-          "namerica": 2.9,
-          "asia": -2.4,
-          "lamerica": 1.4,
-          "meast": -0.3,
-          "africa": 0.2
-        }, {
-          "year": "2012",
-          "europe": 2.5,
-          "namerica": 0.5,
-          "asia": 2.1,
-          "lamerica": 1.2,
-          "meast": 0.2,
-          "africa": -0.15
+
+        for(var i=0; i<resultset1.length; i+3){
+
+          var a = {
+            year : resultSet1[i]["Invoice_Date"].description,
+            profit : resultSet1[i]["@MeasureDimension"].rawValue,
+            sales : resultSet1[i]["@MeasureDimension"].rawValue,
+            cogs : resultSet1[i]["@MeasureDimension"].rawValue
+          }
+
+          data.push(a);
+
         }
-        ];
+
+        chart.data = data;
+
+
+        // chart.data = [{
+        //   "year": "2000",
+        //   "europe": 2.5,
+        //   "namerica": 2.5,
+        //   "asia": 2.1,
+        //   "lamerica": 1.2,
+        //   "meast": 0.2,
+        //   "africa": -0.2
+        // }, {
+        //   "year": "2001",
+        //   "europe": 2.5,
+        //   "namerica": 0.5,
+        //   "asia": 2.1,
+        //   "lamerica": 1.2,
+        //   "meast": 0.2,
+        //   "africa": -0.15
+        // }, {
+        //   "year": "2002",
+        //   "europe": 2.8,
+        //   "namerica": 2.9,
+        //   "asia": -2.4,
+        //   "lamerica": 1.4,
+        //   "meast": -0.3,
+        //   "africa": 0.3
+        // },
+        // {
+        //   "year": "2003",
+        //   "europe": 2.5,
+        //   "namerica": -2.5,
+        //   "asia": 2.1,
+        //   "lamerica": 1.2,
+        //   "meast": 0.2,
+        //   "africa": -0.1
+        // }, {
+        //   "year": "2004",
+        //   "europe": 2.6,
+        //   "namerica": 2.7,
+        //   "asia": -2.2,
+        //   "lamerica": 1.3,
+        //   "meast": 0.3,
+        //   "africa": 0.1
+        // }, {
+        //   "year": "2005",
+        //   "europe": 2.8,
+        //   "namerica": 2.9,
+        //   "asia": -2.4,
+        //   "lamerica": 1.4,
+        //   "meast": -0.3,
+        //   "africa": 0.2
+        // }, {
+        //   "year": "2006",
+        //   "europe": 2.8,
+        //   "namerica": 2.9,
+        //   "asia": -2.4,
+        //   "lamerica": 1.4,
+        //   "meast": -0.3,
+        //   "africa": 0.2
+        // }, {
+        //   "year": "2007",
+        //   "europe": 2.5,
+        //   "namerica": 2.5,
+        //   "asia": 2.1,
+        //   "lamerica": 1.2,
+        //   "meast": 0.2,
+        //   "africa": -0.2
+        // }, {
+        //   "year": "2008",
+        //   "europe": 2.8,
+        //   "namerica": 2.9,
+        //   "asia": -2.4,
+        //   "lamerica": 1.4,
+        //   "meast": -0.3,
+        //   "africa": 0.2
+        // }, {
+        //   "year": "2009",
+        //   "europe": 2.5,
+        //   "namerica": 0.5,
+        //   "asia": 2.1,
+        //   "lamerica": 1.2,
+        //   "meast": 0.2,
+        //   "africa": -0.15
+        // }, {
+        //   "year": "2010",
+        //   "europe": 2.8,
+        //   "namerica": 5,
+        //   "asia": -2.4,
+        //   "lamerica": 1.4,
+        //   "meast": -0.3,
+        //   "africa": 0.4
+        // }, {
+        //   "year": "2011",
+        //   "europe": 2.8,
+        //   "namerica": 2.9,
+        //   "asia": -2.4,
+        //   "lamerica": 1.4,
+        //   "meast": -0.3,
+        //   "africa": 0.2
+        // }, {
+        //   "year": "2012",
+        //   "europe": 2.5,
+        //   "namerica": 0.5,
+        //   "asia": 2.1,
+        //   "lamerica": 1.2,
+        //   "meast": 0.2,
+        //   "africa": -0.15
+        // }
+        // ];
   
         // Create axes
+        
         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
         categoryAxis.dataFields.category = "year";
         categoryAxis.title.text = "Profit & Loss Summary";
@@ -199,9 +217,9 @@ var getScriptPromisify = (src) => {
                                             bullet.label.text = "{valueY}"; */
         }
   
-        createSeries("europe", "COGS", false, valueAxis, "#204666");
-        createSeries("namerica", "Sales", true, valueAxis, "#f3b026");
-        createSeries("africa", "Profit", true, valueAxis1, "#02a264");
+        createSeries("cogs", "COGS", false, valueAxis, "#204666");
+        createSeries("sales", "Sales", true, valueAxis, "#f3b026");
+        createSeries("profit", "Profit", true, valueAxis1, "#02a264");
   
         // Add legend
         /* chart.legend = new am4charts.Legend(); */
