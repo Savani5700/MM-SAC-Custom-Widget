@@ -23,7 +23,7 @@ var getScriptPromisify = (src) => {
   
         this._props = {}
   
-        this.render(this._resultset)
+        // this.render(this._resultset)
       }
   
       // onCustomWidgetResize(width, height) {
