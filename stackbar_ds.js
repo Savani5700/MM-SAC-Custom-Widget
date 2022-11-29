@@ -213,9 +213,9 @@ var getScriptPromisify = (src) => {
           series.columns.template.width = am4core.percent(100);
         }
   
-        createSeries("profit", "COGS", false, valueAxis, "#204666");
+        createSeries("profit", "Profit", false, valueAxis, "#204666");
         createSeries("sales", "Sales", true, valueAxis, "#f3b026");
-        createSeries("cogs", "Profit", true, valueAxis1, "#02a264");
+        createSeries("cogs", "COGS", true, valueAxis1, "#02a264");
   
         // Add legend
         /* chart.legend = new am4charts.Legend(); */
