@@ -39,35 +39,43 @@ var getScriptPromisify = (src) => {
       am4core.useTheme(am4themes_animated);
       // Themes end
 
-      var chart = am4core.create("chartdiv", am4charts.PieChart3D);
+      var chart = am4core.create(this._root, am4charts.PieChart3D);
       chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
-      chart.data = [
-        {
-          country: "Lithuania",
-          litres: 501.9
-        },
-        {
-          country: "Czech Republic",
-          litres: 301.9
-        },
-        {
-          country: "Ireland",
-          litres: 201.1
-        },
-        {
-          country: "Germany",
-          litres: 165.8
-        },
-        {
-          country: "Australia",
-          litres: 139.9
-        },
-        {
-          country: "Austria",
-          litres: 128.3
+      var data = [];
+
+      for(var i=0; i<resultset1.length;i++){
+        var a ={
+        category : resultset1[i]["Category"].description,
+        salestarget : resultset1[i]["Account"].rawValue
         }
-      ];
+      }
+      // chart.data = [
+      //   {
+      //     country: "Lithuania",
+      //     litres: 501.9
+      //   },
+      //   {
+      //     country: "Czech Republic",
+      //     litres: 301.9
+      //   },
+      //   {
+      //     country: "Ireland",
+      //     litres: 201.1
+      //   },
+      //   {
+      //     country: "Germany",
+      //     litres: 165.8
+      //   },
+      //   {
+      //     country: "Australia",
+      //     litres: 139.9
+      //   },
+      //   {
+      //     country: "Austria",
+      //     litres: 128.3
+      //   }
+      // ];
 
       chart.innerRadius = am4core.percent(40);
       chart.depth = 120;
@@ -75,9 +83,9 @@ var getScriptPromisify = (src) => {
       chart.legend = new am4charts.Legend();
 
       var series = chart.series.push(new am4charts.PieSeries3D());
-      series.dataFields.value = "litres";
-      series.dataFields.depthValue = "litres";
-      series.dataFields.category = "country";
+      series.dataFields.value = "salestarget";
+      series.dataFields.depthValue = "salestarget";
+      series.dataFields.category = "Categiry";
       series.slices.template.cornerRadius = 5;
       series.colors.step = 3;
 
