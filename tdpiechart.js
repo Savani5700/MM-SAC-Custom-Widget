@@ -44,10 +44,10 @@ var getScriptPromisify = (src) => {
 
       var data = [];
 
-      for(var i=0; i<resultset1.length;i++){
-        var a ={
-        category : resultset1[i]["Sub-Category"].description,
-        salestarget : resultset1[i]["Account"].rawValue
+      for (var i = 0; i < resultset1.length; i++) {
+        var a = {
+          SubCategory: resultset1[i]["SubCategory"].description,
+          salestarget: resultset1[i]["Account"].rawValue
         }
 
         data.push(a);
@@ -88,7 +88,7 @@ var getScriptPromisify = (src) => {
       var series = chart.series.push(new am4charts.PieSeries3D());
       series.dataFields.value = "salestarget";
       series.dataFields.depthValue = "salestarget";
-      series.dataFields.category = "Category";
+      series.dataFields.category = "SubCategory";
       series.slices.template.cornerRadius = 5;
       series.colors.step = 3;
 
