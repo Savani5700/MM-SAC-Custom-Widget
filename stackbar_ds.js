@@ -30,7 +30,7 @@ var getScriptPromisify = (src) => {
         // this.render()
       }
   
-      async render(resultset) {
+      async render(resultset1) {
         await getScriptPromisify('https://cdn.amcharts.com/lib/4/core.js');
         await getScriptPromisify('https://cdn.amcharts.com/lib/4/themes/animated.js');
         await getScriptPromisify('https://cdn.amcharts.com/lib/4/charts.js');
@@ -38,8 +38,8 @@ var getScriptPromisify = (src) => {
         // Themes begin
         am4core.useTheme(am4themes_animated);
         // Themes end
-        console.log(resultset);
-        console.log(this._resultset);
+        console.log(resultset1);
+        console.log(this.resultset);
         // Create chart instance
         var chart = am4core.create(this._root, am4charts.XYChart);
   
