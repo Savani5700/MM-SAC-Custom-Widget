@@ -9,7 +9,7 @@ var getScriptPromisify = (src) => {
   prepared.innerHTML = `
 <style>
 </style>
-<div id="root" style="width: 100%; height: 100%;">
+<div id="root" style="width: 80%; height: 80%;">
 </div>
 `
   class SamplePrepared extends HTMLElement {
