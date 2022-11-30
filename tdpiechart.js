@@ -9,7 +9,7 @@ var getScriptPromisify = (src) => {
   prepared.innerHTML = `
 <style>
 </style>
-<div id="root" style="width: 90%; height: 100%; margin=auto">
+<div id="root" style="width: 100%; height: 100%;">
 </div>
 `
   class SamplePrepared extends HTMLElement {
@@ -57,7 +57,7 @@ var getScriptPromisify = (src) => {
       }
 
       console.log(data);
-      
+
       chart.data = data;
       // chart.data = [
       //   {
