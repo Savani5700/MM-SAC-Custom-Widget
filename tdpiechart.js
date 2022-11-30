@@ -90,13 +90,12 @@ var getScriptPromisify = (src) => {
       chart.depth = 50;
 
       // chart.legend = new am4charts.Legend();
-
       var series = chart.series.push(new am4charts.PieSeries3D());
       series.dataFields.value = "salestarget";
       series.dataFields.depthValue = "salestarget";
       series.dataFields.category = "SubCategory";
       series.slices.template.cornerRadius = 5;
-      series.colors.step = 3;
+      series.colors.step = 1;
       // series.alignLabels = false;
       series.labels.template.text = "{SubCategory}";
 
