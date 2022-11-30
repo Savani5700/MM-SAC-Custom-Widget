@@ -83,7 +83,7 @@ var getScriptPromisify = (src) => {
       chart.innerRadius = am4core.percent(40);
       chart.depth = 120;
 
-      chart.legend = new am4charts.Legend();
+      // chart.legend = new am4charts.Legend();
 
       var series = chart.series.push(new am4charts.PieSeries3D());
       series.dataFields.value = "salestarget";
