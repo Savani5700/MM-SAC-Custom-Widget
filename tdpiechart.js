@@ -9,7 +9,7 @@ var getScriptPromisify = (src) => {
   prepared.innerHTML = `
 <style>
 </style>
-<div id="root" style=" padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px;">
+<div id="root" style="padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px;">
 </div>
 `
   class SamplePrepared extends HTMLElement {
