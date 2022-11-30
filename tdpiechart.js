@@ -27,7 +27,7 @@ var getScriptPromisify = (src) => {
     }
 
     onCustomWidgetResize(width, height) {
-      this.render()
+      this.render(this._resultset)
     }
 
     async render(resultset1) {
@@ -47,6 +47,8 @@ var getScriptPromisify = (src) => {
       for (var i = 0; i < resultset1.length; i++) {
         var a = {
           // SubCategory: resultset1[i]["SubCategory"].description,
+          // salestarget: resultset1[i]["@Account"].rawValue
+
           SubCategory: resultset1[i]["Contractor"].description,
           salestarget: resultset1[i]["@MeasureDimension"].rawValue/1000000
         }
