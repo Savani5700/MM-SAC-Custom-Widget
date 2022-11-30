@@ -26,9 +26,9 @@ var getScriptPromisify = (src) => {
       // this.render(this._resultset)
     }
 
-    onCustomWidgetResize(width, height) {
-      this.render(this._resultset)
-    }
+    // onCustomWidgetResize(width, height) {
+    //   this.render(this._resultset)
+    // }
 
     async render(resultset1) {
       await getScriptPromisify('https://cdn.amcharts.com/lib/4/core.js');
