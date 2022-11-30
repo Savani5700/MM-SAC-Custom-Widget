@@ -97,6 +97,7 @@ var getScriptPromisify = (src) => {
       series.dataFields.category = "SubCategory";
       series.slices.template.cornerRadius = 5;
       series.colors.step = 3;
+      series.alignLabels = false;
 
     }
   }
