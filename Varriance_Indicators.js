@@ -147,5 +147,5 @@ async render() {
 
 }
 }
-customElements.define('com-sap-sample-Varriance_Indicators-prepared', SamplePrepared)
+customElements.define('com-sap-sample-VarrianceIndicators-prepared', SamplePrepared)
 })()
