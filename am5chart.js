@@ -36,7 +36,7 @@ await getScriptPromisify('https://cdn.amcharts.com/lib/5/xy.js');
 await getScriptPromisify('https://cdn.amcharts.com/lib/5/themes/Animated.js');
 
 
-var root = am5.Root.new("chartdiv");
+var root = am5.Root.new(this._root);
 
 
 // Set themes
