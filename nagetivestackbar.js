@@ -181,6 +181,6 @@ femaleRange.grid.strokeOpacity = 1;
 femaleRange.grid.stroke = female.stroke;
         }
     }
-    customElements.define('com-sap-sample-lollipop-prepared', SamplePrepared)
+    customElements.define('com-sap-sample-nagetivestackbar-prepared', SamplePrepared)
     
 })()
