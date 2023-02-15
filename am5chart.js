@@ -31,205 +31,119 @@ this.render()
 }
 
 async render() {
-await getScriptPromisify('https://cdn.amcharts.com/lib/5/index.js');
-await getScriptPromisify('https://cdn.amcharts.com/lib/5/xy.js');
-await getScriptPromisify('https://cdn.amcharts.com/lib/5/themes/Animated.js');
+    await getScriptPromisify('https://cdn.amcharts.com/lib/4/core.js');
+    await getScriptPromisify('https://cdn.amcharts.com/lib/4/themes/animated.js');
+    await getScriptPromisify('https://cdn.amcharts.com/lib/4/charts.js');
 
+    am4core.useTheme(am4themes_animated);
+    
+    var chart = am4core.create(this._root, am4charts.XYChart);
 
-var root = am5.Root.new(this._root);
-
-
-// Set themes
-// https://www.amcharts.com/docs/v5/concepts/themes/
-root.setThemes([
-  am5themes_Animated.new(root)
-]);
-// Themes end
-
-// Create chart instance
-// var chart = am4core.create(this._root, am4charts.XYChart);
-
-
-var chart = root.container.children.push(am5xy.XYChart.new(this._root, {
-    panX: false,
-    panY: false,
-    wheelX: "none",
-    wheelY: "none",
-    layout: root.verticalLayout
-  }));
-
-// Data
-var data = [{
-year: "2015",
-value: 600000
-}, {
-year: "2016",
-value: 900000
-}, {
-year: "2017",
-value: 180000
-}, {
-year: "2018",
-value: 600000
-}, {
-year: "2019",
-value: 350000
-}, {
-year: "2020",
-value: 600000
-}, {
-year: "2021",
-value: 670000
-}];
-
-// Populate data
-for (var i = 0; i < (data.length - 1); i++) {
-data[i].valueNext = data[i + 1].value;
-}
-
-
-// Create axes
-// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-var xRenderer = am5xy.AxisRendererX.new(root, {
-cellStartLocation: 0.1,
-cellEndLocation: 0.9,
-minGridDistance: 30
-});
-
-var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
-categoryField: "year",
-renderer: xRenderer,
-tooltip: am5.Tooltip.new(root, {})
-}));
-
-xRenderer.grid.template.setAll({
-location: 1
-})
-
-xAxis.data.setAll(data);
-
-var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-min: 0,
-renderer: am5xy.AxisRendererY.new(root, {
-strokeOpacity: 0.1
-})
-}));
-
-
-// Add series
-// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-
-// Column series
-var series = chart.series.push(am5xy.ColumnSeries.new(root, {
-xAxis: xAxis,
-yAxis: yAxis,
-valueYField: "value",
-categoryXField: "year"
-}));
-
-series.columns.template.setAll({
-tooltipText: "{categoryX}: {valueY}",
-width: am5.percent(90),
-tooltipY: 0
-});
-
-series.data.setAll(data);
-
-// Variance indicator series
-var series2 = chart.series.push(am5xy.ColumnSeries.new(root, {
-xAxis: xAxis,
-yAxis: yAxis,
-valueYField: "valueNext",
-openValueYField: "value",
-categoryXField: "year",
-fill: am5.color(0x555555),
-stroke: am5.color(0x555555)
-}));
-
-series2.columns.template.setAll({
-width: 1
-});
-
-series2.data.setAll(data);
-
-series2.bullets.push(function() {
-var label = am5.Label.new(root, {
-text: "{valueY}",
-fontWeight: "500",
-fill: am5.color(0x00cc00),
-centerY: am5.p100,
-centerX: am5.p50,
-populateText: true
-});
-
-// Modify text of the bullet with percent
-label.adapters.add("text", function(text, target) {
-var percent = getVariancePercent(target.dataItem);
-return percent ? percent + "%" : text;
-});
-
-// Set dynamic color of the bullet
-label.adapters.add("centerY", function(center, target) {
-return getVariancePercent(target.dataItem) < 0 ? 0 : center;
-});
-
-// Set dynamic color of the bullet
-label.adapters.add("fill", function(fill, target) {
-return getVariancePercent(target.dataItem) < 0 ? am5.color(0xcc0000) : fill;
-});
-
-return am5.Bullet.new(root, {
-locationY: 1,
-sprite: label
-});
-});
-
-series2.bullets.push(function() {
-var arrow = am5.Graphics.new(root, {
-rotation: -90,
-centerX: am5.p50,
-centerY: am5.p50,
-dy: 3,
-fill: am5.color(0x555555),
-stroke: am5.color(0x555555),
-draw: function(display) {
-display.moveTo(0, -3);
-display.lineTo(8, 0);
-display.lineTo(0, 3);
-display.lineTo(0, -3);
-}
-});
-
-arrow.adapters.add("rotation", function(rotation, target) {
-return getVariancePercent(target.dataItem) < 0 ? 90 : rotation;
-});
-
-arrow.adapters.add("dy", function(dy, target) {
-return getVariancePercent(target.dataItem) < 0 ? -3 : dy;
-});
-
-return am5.Bullet.new(root, {
-locationY: 1,
-sprite: arrow
-})
-})
-
-
-// Make stuff animate on load
-// https://www.amcharts.com/docs/v5/concepts/animations/
-series.appear();
-chart.appear(1000, 100);
-
-
-function getVariancePercent(dataItem) {
-if (dataItem) {
-var value = dataItem.get("valueY");
-var openValue = dataItem.get("openValueY");
-var change = value - openValue;
-return Math.round(change / openValue * 100);
-}
-return 0;
-}
+    // Add data
+    chart.data = [{
+        "year": "2011",
+        "value": 600000
+    }, {
+        "year": "2012",
+        "value": 900000
+    }, {
+        "year": "2013",
+        "value": 180000
+    }, {
+        "year": "2014",
+        "value": 600000
+    }, {
+        "year": "2015",
+        "value": 350000
+    }, {
+        "year": "2016",
+        "value": 600000
+    }, {
+        "year": "2017",
+        "value": 670000
+    }];
+    
+    // Populate data
+    for (var i = 0; i < (chart.data.length - 1); i++) {
+        chart.data[i].valueNext = chart.data[i + 1].value;
+    }
+    
+    // Create axes
+    var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "year";
+    categoryAxis.renderer.grid.template.location = 0;
+    categoryAxis.renderer.minGridDistance = 30;
+    
+    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis.min = 0;
+    
+    // Create series
+    var series = chart.series.push(new am4charts.ColumnSeries());
+    series.dataFields.valueY = "value";
+    series.dataFields.categoryX = "year";
+    
+    // Add series for showing variance arrows
+    var series2 = chart.series.push(new am4charts.ColumnSeries());
+    series2.dataFields.valueY = "valueNext";
+    series2.dataFields.openValueY = "value";
+    series2.dataFields.categoryX = "year";
+    series2.columns.template.width = 1;
+    series2.fill = am4core.color("#555");
+    series2.stroke = am4core.color("#555");
+    
+    // Add a triangle for arrow tip
+    var arrow = series2.bullets.push(new am4core.Triangle);
+    arrow.width = 10;
+    arrow.height = 10;
+    arrow.horizontalCenter = "middle";
+    arrow.verticalCenter = "top";
+    arrow.dy = -1;
+    
+    // Set up a rotation adapter which would rotate the triangle if its a negative change
+    arrow.adapter.add("rotation", function(rotation, target) {
+        return getVariancePercent(target.dataItem) < 0 ? 180 : rotation;
+    });
+    
+    // Set up a rotation adapter which adjusts Y position
+    arrow.adapter.add("dy", function(dy, target) {
+        return getVariancePercent(target.dataItem) < 0 ? 1 : dy;
+    });
+    
+    // Add a label
+    var label = series2.bullets.push(new am4core.Label);
+    label.padding(10, 10, 10, 10);
+    label.text = "";
+    label.fill = am4core.color("#0c0");
+    label.strokeWidth = 0;
+    label.horizontalCenter = "middle";
+    label.verticalCenter = "bottom";
+    label.fontWeight = "bolder";
+    
+    // Adapter for label text which calculates change in percent
+    label.adapter.add("textOutput", function(text, target) {
+        var percent = getVariancePercent(target.dataItem);
+        return percent ? percent + "%" : text;
+    });
+    
+    // Adapter which shifts the label if it's below the variance column
+    label.adapter.add("verticalCenter", function(center, target) {
+        return getVariancePercent(target.dataItem) < 0 ? "top" : center;
+    });
+    
+    // Adapter which changes color of label to red
+    label.adapter.add("fill", function(fill, target) {
+        return getVariancePercent(target.dataItem) < 0 ? am4core.color("#c00") : fill;
+    });
+    
+    function getVariancePercent(dataItem) {
+        if (dataItem) {
+            var value = dataItem.valueY;
+            var openValue = dataItem.openValueY;
+            var change = value - openValue;
+            return Math.round(change / openValue * 100);
+        }
+        return 0;
+    }
 
 }
 }
