@@ -147,5 +147,5 @@ async render() {
 
 }
 }
-customElements.define('com-sap-sample-am5chart-prepared', SamplePrepared)
+customElements.define('com-sap-sample-Varriance_Indicators-prepared', SamplePrepared)
 })()
