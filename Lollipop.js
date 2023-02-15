@@ -119,4 +119,5 @@ var getScriptPromisify = (src) => {
         }
     }
     customElements.define('com-sap-sample-lollipop-prepared', SamplePrepared)
+    
 })()
