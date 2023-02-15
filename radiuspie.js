@@ -37,7 +37,7 @@ var getScriptPromisify = (src) => {
 
             am4core.useTheme(am4themes_animated);
 
-            var chart = am4core.create(this._root, am4charts.XYChart);
+            var chart = am4core.create(this._root, am4charts.PieChart);
             chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
             chart.data = [
