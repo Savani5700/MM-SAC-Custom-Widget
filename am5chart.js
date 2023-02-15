@@ -47,7 +47,7 @@ root.setThemes([
 // Themes end
 
 // Create chart instance
-var chart = am4core.create(this._root, am4charts.XYChart);
+// var chart = am4core.create(this._root, am4charts.XYChart);
 
 
 var chart = root.container.children.push(am5xy.XYChart.new(this._root, {
