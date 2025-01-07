@@ -3,7 +3,6 @@ var getScriptPromisify = (src) => {
         $.getScript(src, resolve)
     })
 }
-
 (function () {
     const prepared = document.createElement('template')
     prepared.innerHTML = `
