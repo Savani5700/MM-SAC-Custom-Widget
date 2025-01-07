@@ -287,16 +287,6 @@ var getScriptPromisify = (src) => {
             hoverState.properties.fillOpacity = 0.7;
             hoverState.properties.strokeOpacity = 0.7;
 
-            // data credit label
-            var creditLabel = chart.chartContainer.createChild(am4core.TextLink);
-            creditLabel.text = "Data source: notrudedude";
-            creditLabel.url = "https://www.reddit.com/user/notrudedude";
-            creditLabel.urlTarget = "_blank";
-            creditLabel.y = am4core.percent(99);
-            creditLabel.x = am4core.percent(99);
-            creditLabel.horizontalCenter = "right";
-            creditLabel.verticalCenter = "bottom";
-
         }
     }
     customElements.define('com-sap-sample-lollipop-prepared', SamplePrepared)
