@@ -297,13 +297,6 @@ var getScriptPromisify = (src) => {
             creditLabel.horizontalCenter = "right";
             creditLabel.verticalCenter = "bottom";
 
-            var titleImage = chart.chartContainer.createChild(am4core.Image);
-            titleImage.href = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-160/whokissed.png";
-            titleImage.x = 30
-            titleImage.y = 30;
-            titleImage.width = 200;
-            titleImage.height = 200;
-
         }
     }
     customElements.define('com-sap-sample-lollipop-prepared', SamplePrepared)
