@@ -1,0 +1,40 @@
+{
+	"eula": "",
+	"vendor": "Darshan SAVANI",
+	"license": "",
+	"id": "com.sap.sac.sample.lollipop.prepared",
+	"version": "1.1.1",
+	"name": "lollipop",
+	"newInstancePrefix": "lollipop",
+	"description": "am4chart",
+	"webcomponents": [
+		{
+			"kind": "main",
+			"tag": "com-sap-sample-lollipop-prepared",
+			"url": "https://mmanalytics.github.io/MM_SAC_CW.github.io/Lollipop.js",
+			"integrity": "",
+			"ignoreIntegrity": true
+		}
+	],
+	"properties": {
+		"width": {
+			"type": "integer",
+			"default": 600
+		},
+		"height": {
+			"type": "integer",
+			"default": 420
+		}
+	},
+	"methods": {
+		"render": {
+			"description": "Render",
+			"parameters": []
+		}
+	},
+	"events": {
+		"onClick": {
+			"description": "Called when the user clicks the Box."
+		}
+	}
+}
