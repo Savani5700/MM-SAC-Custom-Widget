@@ -289,6 +289,6 @@ var getScriptPromisify = (src) => {
 
         }
     }
-    customElements.define('com-sap-sample-lollipop-prepared', SamplePrepared)
+    customElements.define('com-sap-sample-chord-prepared', SamplePrepared)
 
 })()
