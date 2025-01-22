@@ -59,7 +59,7 @@ var getScriptPromisify = (src) => {
                 { "from": "Rachel", "color": colors.Rachel },
                 { "from": "Chandler", "color": colors.Chandler },
                 { "from": "Ross", "color": colors.Ross },
-                { "from": "Joey", "image": "joey.png", },
+                { "from": "Joey", "color": colors.Joey },
                 { "from": "Phoebe", "image": "phoebe.png", "color": colors.Phoebe },
 
                 // real data
