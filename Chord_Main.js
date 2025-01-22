@@ -55,11 +55,11 @@ var getScriptPromisify = (src) => {
             chart.data = [
                 // node property fields take data from data items where they are first mentioned, that's 
                 // why we add empty data items at the beginning and set colors here
-                { "from": "Monica", "image": "monica.png", "color": colors.Monica },
-                { "from": "Rachel", "image": "rachel.png", "color": colors.Rachel },
-                { "from": "Chandler", "image": "chandler.png", "color": colors.Chandler },
-                { "from": "Ross", "image": "ross.png", "color": colors.Ross },
-                { "from": "Joey", "color": colors.Joey, "image": "joey.png", },
+                { "from": "Monica", "color": colors.Monica },
+                { "from": "Rachel", "color": colors.Rachel },
+                { "from": "Chandler", "color": colors.Chandler },
+                { "from": "Ross", "color": colors.Ross },
+                { "from": "Joey", "image": "joey.png", },
                 { "from": "Phoebe", "image": "phoebe.png", "color": colors.Phoebe },
 
                 // real data
